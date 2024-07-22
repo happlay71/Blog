@@ -1,0 +1,9 @@
+{
+  "label": "函数",
+  "position": 2,
+  "link": {
+    "slug": "函数",
+    "type": "generated-index",
+    "description": "指一段可以直接被另一段程序调用的程序或代码。"
+  }
+}

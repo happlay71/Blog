@@ -1,0 +1,8 @@
+{
+  "label": "Nginx",
+  "position": 10,
+  "link": {
+    "slug": "Nginx",
+    "type": "generated-index"
+  }
+}
