@@ -1,1 +1,33 @@
+name: Auto Deploy
+on:
+  push:
+    branches:
+      - main
 
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20.9.0'
+
+      - name: Install dependencies
+        run: npm install  
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to Aliyun
+        uses: easingthemes/ssh-deploy@v4.1.10 
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.USER_HOST }}
+          REMOTE_USER: ${{ secrets.USER_NAME }}
+          SOURCE: "build/"  
+          ARGS: "-rltgoDzvO --delete"
+          TARGET: /nginx/html/build 
