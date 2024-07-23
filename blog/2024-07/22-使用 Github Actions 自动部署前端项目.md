@@ -10,7 +10,7 @@ sidebar-position: 4
 ## 创建工作流
 点击项目仓库中的 Actions 选项
 
-![](https:\\happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-22_11-57-48.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-22_11-57-48.png)
 
 可以选择set up a workflow yourself创建一个新的工作流然后直接提交空文件，或者在下方选择一个模板 点击start commit，这两种方式都会在项目目录下会新建.github/workflow/main.yml文件
 
@@ -77,7 +77,7 @@ chmod 600 authorized_keys
 在Github仓库配置密钥
 在Settings下的Secrets and variables中的Actions中添加仓库密钥
 
-![](https:\\happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-23_17-29-13.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-23_17-29-13.png)
 
 在服务器中`cat`密钥，将所有内容复制到新的`Repository secrets`中，并填入服务器IP到 `USER_HOST`，填入服务器用户到`USER_NAME`
 
@@ -87,12 +87,12 @@ chmod 600 authorized_keys
 
 配置完成效果
 
-![](https:\\happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-23_19-54-10.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-23_19-54-10.png)
 
 提交代码
 将代码提交后，会自动触发工作流，可以在`Ations`界面看工作流工作状况
 
-
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-23_20-14-19.png)
 
 出现绿色的对号就是运行成功了，现在服务器上文件应该已经更新了
 
