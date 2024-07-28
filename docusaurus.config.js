@@ -40,7 +40,19 @@ const config = {
 
   presets: [
     [
-      // 'classic',
+      // "classic",
+      // /** @type {import('@docusaurus/preset-classic').Options} */
+      // ({
+      //   // 这个插件会为你的站点创建一个站点地图
+      //   // 以便搜索引擎的爬虫能够更准确地爬取你的网站
+      //   sitemap: {
+      //     changefreq: "weekly",
+      //     priority: 0.5,
+      //     ignorePatterns: ["/tags/**"],
+      //     filename: "sitemap.xml",
+      //   },
+      // }),
+
       '@docusaurus/preset-classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
@@ -71,6 +83,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
       navbar: {
@@ -164,6 +177,12 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      algolia: {
+        appId: 'DTY1WTIBGY', // Application ID
+        //  公开 API密钥：提交它没有危险
+        apiKey: '8a9e0ecfa7803c0a7087d1d21ec94e61', //  Search-Only API Key
+        indexName: 'happlay71'
       },
     }),
 };

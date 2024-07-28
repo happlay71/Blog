@@ -19,6 +19,8 @@ sidebar-position: 3
 通过`git branch --set-upstream-to=origin/master master`命令连接本地及远程分支
 
 ## 建议
-在推送分支前先用`git pull`命令或
+在推送分支前先用`git pull`命令或通过vscode
+
 ![Snipaste_2024-07-01_09-38-00](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-07-01_09-38-00.png)
+
 拉取远程分支最新代码再使用`git push`推送到远程仓库
