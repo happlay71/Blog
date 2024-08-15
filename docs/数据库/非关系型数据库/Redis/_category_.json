@@ -1,8 +1,8 @@
 {
-  "label": "非关系型数据库",
+  "label": "Redis",
   "position": 1,
   "link": {
-    "slug": "非关系型数据库",
+    "slug": "Redis",
     "type": "generated-index"
   }
 }

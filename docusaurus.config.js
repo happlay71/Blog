@@ -8,6 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 
 const beian = '冀ICP备2024076959号-1'
+const beian1 = '冀公网安备13108202001116号'
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -171,6 +172,9 @@ const config = {
         ],
         copyright: `
         <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
+        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
+          beian1.match(/\d+/)?.[0]
+        }" >${beian1}</a></p>
         <p>Copyright © ${new Date().getFullYear()} - MADE BY Happlay71, Built with Docusaurus.</p>
         `,
       },

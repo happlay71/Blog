@@ -168,5 +168,12 @@ ALGOLIA_API_KEY=xxx
 
 打开该文件，执行
 ```bash
-docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
+docker run -it --network 网络名称 --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
 ```
+
+
+## 问题&解决方案
+
+1. 执行拉取`algolia/docsearch-scraper`命令时超时
+
+未解决……
