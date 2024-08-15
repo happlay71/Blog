@@ -3,7 +3,7 @@ slug: RabbitMQ
 sidebar_position: 2
 ---
 
-# [RabbitMQ](https://www.rabbitmq.com/)
+[RabbitMQ官网](https://www.rabbitmq.com/)
 
 ## 安装
 
