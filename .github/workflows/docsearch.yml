@@ -13,13 +13,13 @@ jobs:
 
       - name: Get the content of docsearch.json as config
         id: algolia_config
-        run: echo "config=$(cat docsearch.json | jq -r tostring)" >> $GITHUB_ENV
+        run: echo "::set-output name=config::$(cat docsearch.json | jq -r tostring)"
 
       - name: Run algolia/docsearch-scraper image
         env:
           ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
           ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ env.config }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
         run: |
           docker run \
             --env APPLICATION_ID=${ALGOLIA_APP_ID} \
