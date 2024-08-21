@@ -3,7 +3,7 @@ title: 利用docker执行爬虫程序完成搜索功能
 description: 一篇拥有搜索功能的网站可以有效优化用户的使用体验(本文使用的是创建docker容器爬取本地内容的方式，未尝试新版的DocSearch)
 slug: 利用docker执行爬虫程序完成搜索功能
 authors: happlay
-hide_table_of_contents: false
+# hide_table_of_contents: false
 sidebar-position: 5
 ---
 
