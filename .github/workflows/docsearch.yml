@@ -4,18 +4,12 @@ on:
   push:
     branches:
       - main
-
+      
 jobs:
   algolia:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Load environment variables from .env file
-        run: |
-          source /nginx/html/algolia/.env
-          echo "ALGOLIA_APP_ID=$ALGOLIA_APP_ID" >> $GITHUB_ENV
-          echo "ALGOLIA_API_KEY=$ALGOLIA_API_KEY" >> $GITHUB_ENV
 
       - name: Get the content of docsearch.json as config
         id: algolia_config
