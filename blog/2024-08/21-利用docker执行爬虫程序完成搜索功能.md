@@ -207,6 +207,8 @@ jobs:
             algolia/docsearch-scraper
 ```
 
+此处的`secrets.ALGOLIA_APP_ID`和`secrets.ALGOLIA_API_KEY`应在`github`的项目里配置对应密钥，详细操作见：[配置密钥](https://happlay.online/blog/%E4%BD%BF%E7%94%A8%20Github%20Actions%20%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2%E5%89%8D%E7%AB%AF%E9%A1%B9%E7%9B%AE#%E9%85%8D%E7%BD%AE%E5%AF%86%E9%92%A5)
+
 可更改`github action`触发条件：
 
 - `push`到`main`分支触发：
