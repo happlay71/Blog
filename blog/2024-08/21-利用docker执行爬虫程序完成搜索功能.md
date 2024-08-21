@@ -1,6 +1,6 @@
 ---
 title: 利用docker执行爬虫程序完成搜索功能
-description: 一篇拥有搜索功能的网站可以有效优化用户的使用体验
+description: 一篇拥有搜索功能的网站可以有效优化用户的使用体验(本文使用的是创建docker容器爬取本地内容的方式，未尝试新版的DocSearch)
 slug: 使用 Github Actions 自动部署前端项目
 authors: happlay
 hide_table_of_contents: false
@@ -171,9 +171,101 @@ ALGOLIA_API_KEY=xxx
 docker run -it --network 网络名称 --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)" algolia/docsearch-scraper
 ```
 
+服务器出现`> DocSearch: https://……`时说明正在推送本地爬取的内容到`algolia`
+
+## 利用GitHub实现自动化部署
+
+在项目的根目录下找到`.github/workflows/docsearch.yml`文件（没有则创建一个）
+
+```
+name: docsearch
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  algolia:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get the content of docsearch.json as config
+        id: algolia_config
+        run: echo "::set-output name=config::$(cat docsearch.json | jq -r tostring)"
+
+      - name: Run algolia/docsearch-scraper image
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          CONFIG: ${{ steps.algolia_config.outputs.config }}
+        run: |
+          docker run \
+            --env APPLICATION_ID=${ALGOLIA_APP_ID} \
+            --env API_KEY=${ALGOLIA_API_KEY} \
+            --env "CONFIG=${CONFIG}" \
+            algolia/docsearch-scraper
+```
+
+可更改`github action`触发条件：
+
+- `push`到`main`分支触发：
+  ```
+  on:
+    push:
+      branches:
+        - master
+  ```
+
+- 发布成功后触发：
+
+  ```
+  on: deployment
+  ```
+
+- 定时触发：
+
+  ```
+  on: deployment
+  ```
+
+- 手动触发：
+
+  ```
+  on: deployment
+  ```
+
 
 ## 问题&解决方案
 
 1. 执行拉取`algolia/docsearch-scraper`命令时超时
 
-未解决……
+- 可尝试在虚拟机中安装`clash`---未尝试
+
+- 可从[`github`](https://github.com/algolia/docsearch-scraper)网站中获取压缩包，然后解压，构建镜像
+
+- `cloudflare`注册部署:
+
+  `Cloudflare`是一个全球性的云平台，它为世界各地的各种规模的企业提供广泛的网络服务，从而使企业更加安全，同时提高其关键互联网资产的性能和可靠性。
+
+  1. 在[官网](https://dash.cloudflare.com/)注册用户
+
+  2. 在自己的`github`中`fork` [` CF-Workers-docker.io`](https://github.com/happlay71/CF-Workers-docker.io)项目
+
+  3. 进入`CF`官网按照一下步骤执行
+
+  ![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-08-21_13-29-22.png)
+
+  ![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/Snipaste_2024-08-21_13-33-23.png)
+
+  按照流程默认创建即可。
+
+  后续可能需要自备域名、构建站点等操作，未实现……
+
+- 使用他人构建好的站点：
+
+  (目前可用)
+  ```
+  Docker 镜像站1：docker.888666222.xyz
+  Docker 镜像站2：docker.1panel.live
+  ```

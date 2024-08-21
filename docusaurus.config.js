@@ -182,12 +182,12 @@ const config = {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
-      // algolia: {
-      //   appId: 'DTY1WTIBGY', // Application ID
-      //   //  公开 API密钥：提交它没有危险
-      //   apiKey: '8a9e0ecfa7803c0a7087d1d21ec94e61', //  Search-Only API Key
-      //   indexName: 'happlay71'
-      // },
+      algolia: {
+        appId: 'DTY1WTIBGY', // Application ID
+        //  公开 API密钥：提交它没有危险
+        apiKey: '8a9e0ecfa7803c0a7087d1d21ec94e61', //  Search-Only API Key
+        indexName: 'happlay71'
+      },
     }),
 };
 

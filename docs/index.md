@@ -18,6 +18,7 @@ sidebar_position: 1
 - Nginx
 - Linux
 - Docker
+- 消息队列
 - 部署
 - 接口文档
 - 设计模式
