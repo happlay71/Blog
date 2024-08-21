@@ -11,14 +11,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Load environment variables from .env file
+        run: |
+          source /nginx/html/algolia/.env
+          echo "ALGOLIA_APP_ID=$ALGOLIA_APP_ID" >> $GITHUB_ENV
+          echo "ALGOLIA_API_KEY=$ALGOLIA_API_KEY" >> $GITHUB_ENV
+
       - name: Get the content of docsearch.json as config
         id: algolia_config
         run: echo "config=$(cat docsearch.json | jq -r tostring)" >> $GITHUB_ENV
 
       - name: Run algolia/docsearch-scraper image
         env:
-          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
-          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          ALGOLIA_APP_ID: ${{ env.ALGOLIA_APP_ID }}
+          ALGOLIA_API_KEY: ${{ env.ALGOLIA_API_KEY }}
           CONFIG: ${{ env.config }}
         run: |
           docker run \
