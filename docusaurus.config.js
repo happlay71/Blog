@@ -100,6 +100,7 @@ const config = {
             to: '/'
           },
           {to: '/blog', label: '博客', position: 'right'},
+          {to: '/interview', label: '面经', position: 'right'},
           {
             type: 'docSidebar',
             sidebarId: 'docs',
@@ -157,6 +158,10 @@ const config = {
                 label: '博客',
                 to: '/blog',
               },
+              {
+                label: '面经',
+                to: '/interview',
+              },
             ],
           },
           {
@@ -189,6 +194,21 @@ const config = {
         indexName: 'happlay71'
       },
     }),
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'interview',
+        routeBasePath: 'interview',
+        path: './interview',
+        blogTitle: '面经',
+        blogDescription: '各种面试题总结',
+        blogSidebarTitle: '所有面经',
+        blogSidebarCount: 'ALL',
+      },
+    ],
+  ],
 };
 
 export default config;
