@@ -176,12 +176,29 @@ const config = {
           },
         ],
         copyright: `
-        <p style="margin-bottom: 0;"><a href="http://beian.miit.gov.cn/">${beian}</a></p>
-        <p style="display: inline-flex; align-items: center;"><img style="height:20px;margin-right: 0.5rem;" src="/img/police.png" alt="police" height="20"/><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${
-          beian1.match(/\d+/)?.[0]
-        }" >${beian1}</a></p>
-        <p>Copyright © ${new Date().getFullYear()} - MADE BY Happlay71, Built with Docusaurus.</p>
+          <div class="custom-footer">
+            <!-- 备案信息块：包含工信部备案号与公安备案 -->
+            <div class="beian-info">
+              <!-- 工信部备案号链接 -->
+              <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">${beian}</a>
+
+              <!-- 分隔符 -->
+              <span class="separator">|</span>
+
+              <!-- 公安备案链接，带小图标 -->
+              <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=${beian1.match(/\d+/)?.[0]}" target="_blank" rel="noopener">
+                <img src="/img/police.png" alt="police" class="police-icon"/>
+                ${beian1}
+              </a>
+            </div>
+
+            <!-- 版权文本信息 -->
+            <p class="copyright">
+              Copyright © ${new Date().getFullYear()} - MADE BY Happlay71, Built with Docusaurus.
+            </p>
+          </div>
         `,
+
       },
       prism: {
         theme: prismThemes.github,

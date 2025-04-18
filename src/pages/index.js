@@ -87,7 +87,7 @@ function HomepageHeader() {
 
       function draw() {
         const uniform2 = gl.getUniformLocation(aka.program, "uVar");
-        gl.uniform1f(uniform2, reverse ? (value -= 0.01) : (value += 0.01));
+        gl.uniform1f(uniform2, reverse ? (value -= 0.005) : (value += 0.005));
 
         if (value >= 1) {
           reverse = true;
@@ -106,26 +106,30 @@ function HomepageHeader() {
 
   return (
     <header className={clsx(styles.heroBanner)}>
-      <div className="container">
-        {/* <img src={logo} style={{width: 280, borderRadius: '50%'}} />  */}
-        <canvas width="300" height="300" style={{ borderRadius: '50%' }} />
-        {/* <h1 className="hero__title">{siteConfig.title}</h1> */}
-        {/* <p className="hero__subtitle">{siteConfig.tagline}</p> */}
-        {/* <div className={styles.buttons}> */}
-        <div className="container">
-          <Heading as="h1" className="hero__title">
-            你好！我是happlay71<br />
-          </Heading>
-          <p className="hero__subtitle">
-            欢迎来到我的网站 <img src="/img/great.gif" alt="great" />
-          </p>
-          <Link className="button button--secondary button--lg" to="introduction">
+      <div className={styles.heroContainer}>
+        <canvas width="280" height="280" className={styles.heroAvatar} />
+
+        <Heading as="h1" className={styles.heroTitle}>
+          你好！我是 happlay71 👋
+        </Heading>
+
+        <p className={styles.heroSubtitle}>
+          一个热爱分享技术与生活的开发者。<br />
+          欢迎来到我的个人网站！
+        </p>
+
+        <div className={styles.buttonWrapper}>
+          <img src="/img/great.gif" alt="great" className={styles.heroEmoji} />
+
+          <Link className={clsx('button button--lg', styles.heroButton)} to="/introduction">
             自我介绍 →
           </Link>
         </div>
+        
       </div>
     </header>
   );
+
 }
 
 export default function Home() {

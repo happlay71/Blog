@@ -61,3 +61,93 @@
   letter-spacing: 0.1em;
   font-size: 5rem; /* 增大字体大小 */
 }
+
+/* 页脚整体容器样式，设置居中、字体大小、字体颜色等 */
+.custom-footer {
+  text-align: center;
+  /* 水平居中 */
+  font-size: 14px;
+  /* 字体大小 */
+  color: #aaa;
+  /* 默认字体颜色 */
+  padding-top: 1rem;
+  /* 顶部间距 */
+}
+
+/* 备案信息区：水平排列 + 间距美化 */
+.beian-info {
+  display: flex;
+  /* 弹性布局 */
+  justify-content: center;
+  /* 居中对齐 */
+  align-items: center;
+  /* 垂直居中 */
+  flex-wrap: wrap;
+  /* 小屏时自动换行 */
+  gap: 1rem;
+  /* 元素间间距 */
+  margin-bottom: 0.5rem;
+  /* 与版权文本的垂直间距 */
+}
+
+/* 备案链接样式 */
+.beian-info a {
+  color: #aaa;
+  /* 链接颜色 */
+  text-decoration: none;
+  /* 移除下划线 */
+  transition: color 0.3s ease;
+  /* 鼠标悬停渐变 */
+}
+
+/* 鼠标悬浮时颜色加深 */
+.beian-info a:hover {
+  color: #fff;
+}
+
+/* 分隔符的样式 */
+.separator {
+  margin: 0 0.5rem;
+  /* 左右间距 */
+  color: #555;
+  /* 分隔符颜色 */
+}
+
+/* 公安小图标样式 */
+.police-icon {
+  height: 18px;
+  /* 图标高度 */
+  vertical-align: middle;
+  /* 垂直居中对齐文本 */
+  margin-right: 4px;
+  /* 图标与文字间距 */
+}
+
+/* 版权文字样式 */
+.custom-footer .copyright {
+  margin: 0;
+  /* 去掉默认间距 */
+}
+
+/* 美化后的页脚样式，星空背景由 SVG 提供 */
+.footer--dark {
+  /* 使用外部 SVG 作为背景图 */
+  background: url('/img/footer-bg.svg') center center / cover no-repeat;
+  /* 居中显示，铺满，禁止重复 */
+
+  position: relative;
+  z-index: 1;
+  color: #eee;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* 页脚链接颜色微调 */
+.footer--dark a {
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+.footer--dark a:hover {
+  color: #fff;
+}

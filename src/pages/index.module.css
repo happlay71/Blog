@@ -21,3 +21,67 @@
   align-items: center;
   justify-content: center;
 }
+
+/* --------- 首页新加样式 ----------------*/
+
+.heroBanner {
+  /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.heroContainer {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.heroAvatar {
+  border-radius: 50%;
+  margin-bottom: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+/* 按钮包裹器，整体左对齐 */
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-start;
+  /* 左对齐 */
+  margin-left: 13rem;
+  /* 向左挪动一点 */
+}
+
+/* 小表情动图，和按钮高度视觉一致 */
+.heroEmoji {
+  width: 60px;
+  height: 40px;
+  vertical-align: middle;
+  margin-left: 0.5rem;
+}
+
+.heroButton {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+  padding: 0.45rem 1.2rem;
+}
+
+.heroButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.5);
+}

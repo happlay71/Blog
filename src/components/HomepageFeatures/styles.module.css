@@ -9,3 +9,33 @@
   height: 200px;
   width: 200px;
 }
+
+/* 整个 features 区域背景设置，使用渐变让页面更有层次感 */
+.features {
+  background: linear-gradient(180deg, #f9fafb 0%, #e2e8f0 100%);
+  padding: 4rem 2rem;
+}
+
+/* Feature 卡片的样式：圆角 + 阴影 + 动画 */
+.featureCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+/* 鼠标悬停时添加动画效果，增强交互感 */
+.featureCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* SVG 图标样式，统一大小和居中 */
+.featureSvg {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+  display: block;
+}
