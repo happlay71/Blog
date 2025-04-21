@@ -112,6 +112,12 @@ const config = {
             },
           },
           {
+            label: '导航',       // 显示的名称
+            to: '/tools',            // 跳转路径，对应页面为 /tools
+            position: 'right',       // 放在右侧
+            className: 'navbar__item--tools' // 自定义 class，可用于样式美化
+          },
+          {
             href: 'https://github.com/happlay71',
             label: 'GitHub',
             alt: 'github',
