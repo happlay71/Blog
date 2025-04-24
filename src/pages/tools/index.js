@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import clsx from 'clsx';
 import styles from './tools.module.css';
-import { toolData } from './data'; // 抽离数据
+import { toolData } from '../../data/toolData'; // 抽离数据
 
 export default function ToolsPage() {
   const categories = Object.keys(toolData);
