@@ -7,7 +7,7 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 
 
-const beian = '冀ICP备2024076959号-1'
+const beian = '冀ICP备2024076959号-2'
 const beian1 = '冀公网安备13108202001116号'
 
 /** @type {import('@docusaurus/types').Config} */
@@ -211,10 +211,10 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       algolia: {
-        appId: 'DTY1WTIBGY', // Application ID
+        appId: 'ZP8ZYUFBV7', // Application ID
         //  公开 API密钥：提交它没有危险
-        apiKey: '8a9e0ecfa7803c0a7087d1d21ec94e61', //  Search-Only API Key
-        indexName: 'happlay71'
+        apiKey: 'e971fe709efc7cdb51ada228d4d1b8ca', //  Search-Only API Key
+        indexName: 'happlay'
       },
     }),
 

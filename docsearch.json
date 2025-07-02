@@ -1,10 +1,10 @@
 {
-  "index_name": "happlay71",
+  "index_name": "happlay",
   "start_urls": [
-    "https://happlay.online/"
+    "https://happlay71.top/"
   ], 
   "sitemap_urls": [
-    "https://happlay.online/sitemap.xml"
+    "https://happlay71.top/sitemap.xml"
   ],
   "stop_urls": ["/search"],
   "selectors": {
