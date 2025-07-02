@@ -213,7 +213,7 @@ const config = {
       algolia: {
         appId: 'ZP8ZYUFBV7', // Application ID
         //  公开 API密钥：提交它没有危险
-        apiKey: 'de580269dc55dbc50fe8bfe676827cb0', //  Search-Only API Key
+        apiKey: '16d325c9e1a8135250e99b3c17f89d08', //  Search-Only API Key
         indexName: 'happlay71'
       },
     }),
