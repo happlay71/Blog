@@ -25,21 +25,27 @@
 /* --------- 首页新加样式 ----------------*/
 
 .heroBanner {
-  /* background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); */
   padding: 4rem 2rem;
   text-align: center;
   color: #333;
+  overflow: hidden;
 }
 
 .heroContainer {
   max-width: 720px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .heroAvatar {
   border-radius: 50%;
   margin-bottom: 2rem;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  height: 200px;
+  max-width: 80vw;
+  /* 加这个避免在手机上超出 */
+  max-height: 80vw;
 }
 
 .heroTitle {
@@ -55,16 +61,24 @@
   margin-bottom: 1.5rem;
 }
 
-/* 按钮包裹器，整体左对齐 */
+/* ✅ 按钮包裹器默认居中对齐（对移动端友好） */
 .buttonWrapper {
   display: flex;
-  justify-content: flex-start;
-  /* 左对齐 */
-  margin-left: 13rem;
-  /* 向左挪动一点 */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
 }
 
-/* 小表情动图，和按钮高度视觉一致 */
+/* ✅ 大屏幕下左对齐 */
+@media screen and (min-width: 996px) {
+  .buttonWrapper {
+    justify-content: flex-start;
+    margin-left: 13rem;
+  }
+}
+
 .heroEmoji {
   width: 60px;
   height: 40px;
@@ -79,6 +93,7 @@
   transition: all 0.3s ease;
   box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
   padding: 0.45rem 1.2rem;
+  font-size: 1rem;
 }
 
 .heroButton:hover {
