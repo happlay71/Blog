@@ -211,9 +211,9 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
       algolia: {
-        appId: 'ZP8ZYUFBV7', // Application ID
+        appId: '1JI6XZP0EX', // Application ID
         //  公开 API密钥：提交它没有危险
-        apiKey: '16d325c9e1a8135250e99b3c17f89d08', //  Search-Only API Key
+        apiKey: 'b14bd541ce81d54aae01074c24731c1a', //  Search-Only API Key
         indexName: 'happlay71'
       },
     }),

@@ -106,7 +106,7 @@ function HomepageHeader() {
 
   return (
     <header className={clsx(styles.heroBanner)}>
-    <meta name="algolia-site-verification"  content="C1943DB57EA2E6AD" />
+    {/* <meta name="algolia-site-verification"  content="C1943DB57EA2E6AD" /> */}
       <div className={styles.heroContainer}>
         <canvas width="280" height="280" className={styles.heroAvatar} />
 
