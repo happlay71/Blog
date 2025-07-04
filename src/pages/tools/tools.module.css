@@ -7,7 +7,7 @@
 /* 折叠菜单按钮 */
 .sidebarToggle {
     display: none;
-    background: #82e2d5;
+    background: #26d9c7;
     color: white;
     padding: 0.75rem 1rem;
     font-weight: bold;
@@ -68,7 +68,7 @@
 }
 
 .active {
-    background: #82e2d5;
+    background: #26d9c7;
     color: white;
 }
 
@@ -138,13 +138,13 @@
         padding: 0 1rem;
         clip-path: circle(0% at 50% 0%);
         transition:
-            clip-path 0.6s ease-out,
-            max-height 0.6s ease-out,
-            opacity 0.4s ease,
-            transform 0.3s ease,
-            padding 0.3s ease;
-        will-change: max-height, opacity, transform, padding, clip-path;
-    }
+                clip-path 0.4s ease-out,
+                max-height 0.5s cubic-bezier(0.2, 0, 0.1, 1),
+                opacity 0.25s ease,
+                transform 0.15s ease;
+        
+            will-change: clip-path, max-height;
+        }
 
     .sidebarOpen {
         /* 设置合理的最大高度，比如屏幕高度的40% */
@@ -159,7 +159,7 @@
 
         /* 添加滚动条样式 */
         scrollbar-width: thin;
-        scrollbar-color: #82e2d5 #f9fafb;
+        scrollbar-color: #26d9c7 #f9fafb;
     }
 
     /* WebKit 浏览器的滚动条样式 */
@@ -172,7 +172,7 @@
     }
 
     .sidebarOpen::-webkit-scrollbar-thumb {
-        background: #82e2d5;
+        background: #26d9c7;
         border-radius: 3px;
     }
 
@@ -198,4 +198,74 @@
         padding: 1rem;
         margin-top: 0;
     }
+}
+
+/* 🌙 暗色主题自定义主色调为 #54b291 */
+[data-theme='dark'] .sidebar {
+    background-color: #1f2937;
+    /* 深灰背景 */
+    border-right: 1px solid #374151;
+}
+
+[data-theme='dark'] .sidebarItem {
+    color: #d1d5db;
+}
+
+[data-theme='dark'] .sidebarItem:hover {
+    background: #374151;
+}
+
+[data-theme='dark'] .active {
+    background: #54b291;
+    /* 主高亮色 */
+    color: white;
+}
+
+[data-theme='dark'] .sidebarOpen {
+    background-color: #1f2937;
+    border-bottom: 1px solid #374151;
+    scrollbar-color: #54b291 #1f2937;
+}
+
+[data-theme='dark'] .sidebarOpen::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+[data-theme='dark'] .sidebarOpen::-webkit-scrollbar-thumb {
+    background: #54b291;
+    border-radius: 3px;
+}
+
+[data-theme='dark'] .sidebarOpen::-webkit-scrollbar-thumb:hover {
+    background: #32a27f;
+}
+
+[data-theme='dark'] .card {
+    background: #1e293b;
+    color: #f1f5f9;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='dark'] .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.06);
+}
+
+[data-theme='dark'] .card p {
+    color: #cbd5e1;
+}
+
+[data-theme='dark'] .mainContent {
+    background: transparent;
+}
+
+[data-theme='dark'] .sidebarToggle {
+    background: #54b291;
+    /* 按钮主色 */
+    color: white;
+}
+
+[data-theme='dark'] .sidebarToggle:hover {
+    background: #32a27f;
 }

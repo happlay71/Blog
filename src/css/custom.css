@@ -6,7 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #82e2d5;
+  --ifm-color-primary: #26d9c7;
   --ifm-color-primary-dark: #65dbcb;
   --ifm-color-primary-darker: #57d8c6;
   --ifm-color-primary-darkest: #2fcab5;
@@ -15,11 +15,14 @@
   --ifm-color-primary-lightest: #d9f6f2;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* 过渡动画变量 */
+  --theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #3cb38d;
+  --ifm-color-primary: #54b291;
   --ifm-color-primary-dark: #36a17f;
   --ifm-color-primary-darker: #339878;
   --ifm-color-primary-darkest: #2a7d63;
@@ -29,9 +32,141 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
+/* ============= 全局过渡动画 ============= */
+
+/* 为所有元素添加平滑过渡 */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 页面整体过渡 */
+html {
+  transition: background-color 0.3s ease;
+}
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 主要容器过渡 */
+.main-wrapper {
+  transition: var(--theme-transition);
+}
+
+/* 导航栏过渡 */
+.navbar {
+  transition: var(--theme-transition);
+}
+
+.navbar__inner {
+  transition: var(--theme-transition);
+}
+
+.navbar__link {
+  transition: color 0.3s ease;
+}
+
+.navbar__brand {
+  transition: color 0.3s ease;
+}
+
+/* 侧边栏过渡 */
+.menu {
+  transition: var(--theme-transition);
+}
+
+.menu__link {
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.menu__list-item {
+  transition: var(--theme-transition);
+}
+
+/* 内容区域过渡 */
+.markdown {
+  transition: var(--theme-transition);
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  transition: color 0.3s ease;
+}
+
+.markdown p,
+.markdown li {
+  transition: color 0.3s ease;
+}
+
+.markdown a {
+  transition: color 0.3s ease;
+}
+
+.markdown blockquote {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 代码块过渡 */
+.prism-code {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 卡片和容器过渡 */
+.card {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container {
+  transition: var(--theme-transition);
+}
+
+/* 按钮过渡 */
+.button {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 目录过渡 */
+.table-of-contents__link {
+  transition: color 0.3s ease;
+}
+
+.table-of-contents {
+  transition: border-color 0.3s ease;
+}
+
+/* 搜索框过渡 */
+.DocSearch-Button {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 主题切换按钮过渡 */
+.react-toggle {
+  transition: all 0.3s ease;
+}
+
+.react-toggle-track {
+  transition: all 0.3s ease;
+}
+
+.react-toggle-thumb {
+  transition: all 0.3s ease;
+}
+
+/* ============= 原有样式 ============= */
+
 .banner {
   padding: 4rem;
+  transition: var(--theme-transition);
 }
+
 /** 在移动设备上，缩小 padding */
 @media screen and (max-width: 996px) {
   .heroBanner {
@@ -45,11 +180,14 @@
   align-items: center;
   text-align: center;
   padding: 20px;
+  transition: var(--theme-transition);
 }
 
 .introduction-container .p {
-  font-size: 1.2rem; /* 调整字体大小 */
+  font-size: 1.2rem;
+  /* 调整字体大小 */
   margin: 10px 0;
+  transition: color 0.3s ease;
 }
 
 .introduction-container .chinese {
@@ -59,7 +197,9 @@
   transform: skew(-5deg);
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  font-size: 5rem; /* 增大字体大小 */
+  font-size: 5rem;
+  /* 增大字体大小 */
+  transition: color 0.3s ease;
 }
 
 /* 页脚整体容器样式，设置居中、字体大小、字体颜色等 */
@@ -72,6 +212,7 @@
   /* 默认字体颜色 */
   padding-top: 1rem;
   /* 顶部间距 */
+  transition: var(--theme-transition);
 }
 
 /* 备案信息区：水平排列 + 间距美化 */
@@ -105,12 +246,18 @@
   color: #fff;
 }
 
+/* 暗色主题下的备案链接悬浮效果 */
+[data-theme='dark'] .beian-info a:hover {
+  color: var(--ifm-color-primary);
+}
+
 /* 分隔符的样式 */
 .separator {
   margin: 0 0.5rem;
   /* 左右间距 */
   color: #555;
   /* 分隔符颜色 */
+  transition: color 0.3s ease;
 }
 
 /* 公安小图标样式 */
@@ -121,12 +268,14 @@
   /* 垂直居中对齐文本 */
   margin-right: 4px;
   /* 图标与文字间距 */
+  transition: opacity 0.3s ease;
 }
 
 /* 版权文字样式 */
 .custom-footer .copyright {
   margin: 0;
   /* 去掉默认间距 */
+  transition: color 0.3s ease;
 }
 
 /* 美化后的页脚样式，星空背景由 SVG 提供 */
@@ -140,6 +289,7 @@
   color: #eee;
   padding-top: 2rem;
   padding-bottom: 2rem;
+  transition: var(--theme-transition);
 }
 
 /* 页脚链接颜色微调 */
@@ -150,4 +300,92 @@
 
 .footer--dark a:hover {
   color: #fff;
+}
+
+/* ============= 暗色主题优化 ============= */
+
+/* 暗色主题下的自定义页脚 */
+[data-theme='dark'] .custom-footer {
+  color: #ccc;
+}
+
+[data-theme='dark'] .custom-footer .copyright {
+  color: #ccc;
+}
+
+[data-theme='dark'] .separator {
+  color: #666;
+}
+
+/* 暗色主题下的介绍容器 */
+[data-theme='dark'] .introduction-container .p {
+  color: #ccc;
+}
+
+[data-theme='dark'] .introduction-container .chinese {
+  color: #fff;
+}
+
+/* 暗色主题下的横幅 */
+[data-theme='dark'] .banner {
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-color-content);
+}
+
+/* ============= 特殊元素过渡优化 ============= */
+
+/* 分页器过渡 */
+.pagination {
+  transition: var(--theme-transition);
+}
+
+.pagination__item {
+  transition: var(--theme-transition);
+}
+
+.pagination__item a {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 面包屑过渡 */
+.breadcrumbs {
+  transition: var(--theme-transition);
+}
+
+.breadcrumbs__link {
+  transition: color 0.3s ease;
+}
+
+/* 标签过渡 */
+.badge {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 警告框过渡 */
+.alert {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 表格过渡 */
+table {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+th,
+td {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* 选项卡过渡 */
+.tabs {
+  transition: var(--theme-transition);
+}
+
+.tabs__item {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 代码复制按钮过渡 */
+.clean-btn {
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

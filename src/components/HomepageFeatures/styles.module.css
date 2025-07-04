@@ -1,41 +1,70 @@
+/* ===== Features 区域 ===== */
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
-.featureSvg {
-  height: 200px;
-  width: 200px;
-}
-
-/* 整个 features 区域背景设置，使用渐变让页面更有层次感 */
-.features {
-  background: linear-gradient(180deg, #f9fafb 0%, #e2e8f0 100%);
   padding: 4rem 2rem;
+  width: 100;
+  background: var(--ifm-background-surface-color);
+  contain: layout paint;
+  /* 性能优化 */
 }
 
-/* Feature 卡片的样式：圆角 + 阴影 + 动画 */
+[data-theme='dark'] .features {
+  background: linear-gradient(180deg,
+      var(--ifm-background-color) 0%,
+      var(--ifm-color-emphasis-100) 100%);
+}
+
+/* Feature 卡片容器 - 优化版 */
 .featureCard {
-  background: white;
+  background: var(--ifm-card-background-color);
   padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--ifm-card-border-radius);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: var(--ifm-global-shadow-lw);
   height: 100%;
+
+  /* 硬件加速优化 */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+  /* 分离动画属性 */
+  transition:
+    transform 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    box-shadow 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    border-color 0.3s ease,
+    background-color 0.3s ease;
 }
 
-/* 鼠标悬停时添加动画效果，增强交互感 */
 .featureCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px) translateZ(0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  border-color: var(--ifm-color-primary-light);
 }
 
-/* SVG 图标样式，统一大小和居中 */
+/* SVG 图标优化 */
 .featureSvg {
   width: 100px;
   height: 100px;
   margin: 0 auto 1rem;
   display: block;
+  color: var(--ifm-color-primary);
+  transform: translateZ(0);
+  transition: filter 0.3s ease;
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  .featureCard {
+    margin-bottom: 1rem;
+    width: 100%;
+    transform: none !important;
+    /* 移动端禁用复杂动画 */
+  }
 }

@@ -77,7 +77,6 @@ export default function ToolsPage() {
 
         {/* 内容区域 */}
         <main className={styles.mainContent}>
-          <h1>{activeCategory}</h1>
           <div className={styles.grid}>
             {toolData[activeCategory].map((tool, index) => (
               <a

@@ -1,34 +1,12 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
-
-.heroBanner {
-  padding: 4rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* --------- 首页新加样式 ----------------*/
-
+/* ===== Hero Banner 区域 ===== */
 .heroBanner {
   padding: 4rem 2rem;
   text-align: center;
-  color: #333;
+  color: var(--ifm-font-color-base);
+  background: var(--ifm-hero-background-color);
+  position: relative;
   overflow: hidden;
+  transition: background-color 0.4s ease;
 }
 
 .heroContainer {
@@ -40,63 +18,80 @@
 .heroAvatar {
   border-radius: 50%;
   margin-bottom: 2rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  width: 200px;
-  height: 200px;
+  box-shadow: var(--hero-avatar-shadow);
+  width: var(--hero-avatar-size);
+  height: var(--hero-avatar-size);
   max-width: 80vw;
-  /* 加这个避免在手机上超出 */
   max-height: 80vw;
+  object-fit: cover;
+  border: 3px solid var(--ifm-color-primary-lightest);
+  transform: translateZ(0);
+  /* 硬件加速 */
 }
 
 .heroTitle {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
+  color: var(--ifm-color-primary);
+  transition: color 0.3s ease;
 }
 
 .heroSubtitle {
   font-size: 1.2rem;
-  color: #555;
+  color: var(--ifm-color-emphasis-600);
   line-height: 1.8;
   margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
 }
 
-/* ✅ 按钮包裹器默认居中对齐（对移动端友好） */
+/* ===== 按钮组优化 ===== */
 .buttonWrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
+  gap: var(--ifm-button-group-spacing);
   align-items: center;
   margin: 1rem 0;
-}
-
-/* ✅ 大屏幕下左对齐 */
-@media screen and (min-width: 996px) {
-  .buttonWrapper {
-    justify-content: flex-start;
-    margin-left: 13rem;
-  }
-}
-
-.heroEmoji {
-  width: 60px;
-  height: 40px;
-  vertical-align: middle;
-  margin-left: 0.5rem;
+  transform: translateZ(0);
 }
 
 .heroButton {
-  background-color: #4f46e5;
-  color: white;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-button-color);
   border: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
-  padding: 0.45rem 1.2rem;
+  border-radius: var(--ifm-button-border-radius);
+  box-shadow: var(--ifm-global-shadow-lw);
+  padding: 0.75rem 1.5rem;
   font-size: 1rem;
+  font-weight: 600;
+
+  /* 优化动画 */
+  transform: translateZ(0);
+  transition:
+    transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    box-shadow 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+    background-color 0.2s ease;
 }
 
 .heroButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.5);
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: var(--ifm-global-shadow-md);
+  background-color: var(--ifm-color-primary-dark);
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroAvatar {
+    width: 150px;
+    height: 150px;
+  }
 }
