@@ -35,9 +35,18 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    // TODO 中英双语切换
-    defaultLocale: 'en', // 默认中文
-    locales: ['zh', 'en'], // 支持中英文
+    defaultLocale: 'zh-CN',    // 中文为默认
+    locales: ['zh-CN', 'en'],  // 顺序调整
+    localeConfigs: {
+      'zh-CN': {
+        htmlLang: 'zh-CN',
+        label: '简体中文',
+      },
+      en: {
+        htmlLang: 'en-US',
+        label: 'English',
+      },
+    },
   },
 
   presets: [
@@ -59,7 +68,10 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          path: 'docs',
+          routeBasePath: 'docs',
+          sidebarPath: require.resolve('./sidebars.js'),
+          editLocalizedFiles: false, // 避免多语言文档混乱
           breadcrumbs: true,  // 收起显示页面的导航
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -122,7 +134,7 @@ const config = {
           {to: '/interview', label: '面经', position: 'right'},
           {
             type: 'docSidebar',
-            sidebarId: 'zh',
+            sidebarId: 'docs',
             position: 'right',
             label: '笔记',
             customProps: {
@@ -136,6 +148,10 @@ const config = {
             position: 'right',       // 放在右侧
             className: 'navbar__item--tools' // 自定义 class，可用于样式美化
           },
+          // {
+          //   type: 'localeDropdown', // 启用语言切换器
+          //   position: 'right',
+          // },
           {
             href: 'https://github.com/happlay71',
             position: 'right',

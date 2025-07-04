@@ -1,7 +1,7 @@
 ---
-slug: welcome
+id: welcome
+slug: /welcome
 sidebar_position: 1
-
 ---
 
 # 技术笔记

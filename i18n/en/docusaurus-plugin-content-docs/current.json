@@ -1,0 +1,246 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.后端": {
+    "message": "后端",
+    "description": "The label for category 后端 in sidebar docs"
+  },
+  "sidebar.docs.category.后端.link.generated-index.description": {
+    "message": "后端语言",
+    "description": "The generated-index page description for category 后端 in sidebar docs"
+  },
+  "sidebar.docs.category.C&C++": {
+    "message": "C&C++",
+    "description": "The label for category C&C++ in sidebar docs"
+  },
+  "sidebar.docs.category.C&C++.link.generated-index.description": {
+    "message": " ",
+    "description": "The generated-index page description for category C&C++ in sidebar docs"
+  },
+  "sidebar.docs.category.Python": {
+    "message": "Python",
+    "description": "The label for category Python in sidebar docs"
+  },
+  "sidebar.docs.category.Java": {
+    "message": "Java",
+    "description": "The label for category Java in sidebar docs"
+  },
+  "sidebar.docs.category.Java SE": {
+    "message": "Java SE",
+    "description": "The label for category Java SE in sidebar docs"
+  },
+  "sidebar.docs.category.面向对象": {
+    "message": "面向对象",
+    "description": "The label for category 面向对象 in sidebar docs"
+  },
+  "sidebar.docs.category.面向对象.link.generated-index.description": {
+    "message": "面向对象",
+    "description": "The generated-index page description for category 面向对象 in sidebar docs"
+  },
+  "sidebar.docs.category.集合": {
+    "message": "集合",
+    "description": "The label for category 集合 in sidebar docs"
+  },
+  "sidebar.docs.category.泛型": {
+    "message": "泛型",
+    "description": "The label for category 泛型 in sidebar docs"
+  },
+  "sidebar.docs.category.异常": {
+    "message": "异常",
+    "description": "The label for category 异常 in sidebar docs"
+  },
+  "sidebar.docs.category.JDBC": {
+    "message": "JDBC",
+    "description": "The label for category JDBC in sidebar docs"
+  },
+  "sidebar.docs.category.API": {
+    "message": "API",
+    "description": "The label for category API in sidebar docs"
+  },
+  "sidebar.docs.category.HTTPService": {
+    "message": "HTTPService",
+    "description": "The label for category HTTPService in sidebar docs"
+  },
+  "sidebar.docs.category.Maven": {
+    "message": "Maven",
+    "description": "The label for category Maven in sidebar docs"
+  },
+  "sidebar.docs.category.Mybatis": {
+    "message": "Mybatis",
+    "description": "The label for category Mybatis in sidebar docs"
+  },
+  "sidebar.docs.category.MybatisPlus": {
+    "message": "MybatisPlus",
+    "description": "The label for category MybatisPlus in sidebar docs"
+  },
+  "sidebar.docs.category.Springboot": {
+    "message": "Springboot",
+    "description": "The label for category Springboot in sidebar docs"
+  },
+  "sidebar.docs.category.微服务": {
+    "message": "微服务",
+    "description": "The label for category 微服务 in sidebar docs"
+  },
+  "sidebar.docs.category.Django": {
+    "message": "Django",
+    "description": "The label for category Django in sidebar docs"
+  },
+  "sidebar.docs.category.数据库": {
+    "message": "数据库",
+    "description": "The label for category 数据库 in sidebar docs"
+  },
+  "sidebar.docs.category.关系型数据库": {
+    "message": "关系型数据库",
+    "description": "The label for category 关系型数据库 in sidebar docs"
+  },
+  "sidebar.docs.category.MySQL": {
+    "message": "MySQL",
+    "description": "The label for category MySQL in sidebar docs"
+  },
+  "sidebar.docs.category.SQL语句": {
+    "message": "SQL语句",
+    "description": "The label for category SQL语句 in sidebar docs"
+  },
+  "sidebar.docs.category.函数": {
+    "message": "函数",
+    "description": "The label for category 函数 in sidebar docs"
+  },
+  "sidebar.docs.category.函数.link.generated-index.description": {
+    "message": "指一段可以直接被另一段程序调用的程序或代码。",
+    "description": "The generated-index page description for category 函数 in sidebar docs"
+  },
+  "sidebar.docs.category.约束": {
+    "message": "约束",
+    "description": "The label for category 约束 in sidebar docs"
+  },
+  "sidebar.docs.category.多表查询": {
+    "message": "多表查询",
+    "description": "The label for category 多表查询 in sidebar docs"
+  },
+  "sidebar.docs.category.事务": {
+    "message": "事务",
+    "description": "The label for category 事务 in sidebar docs"
+  },
+  "sidebar.docs.category.事务.link.generated-index.description": {
+    "message": "是一组操作的集合，它是一个不可分割的工作单位，十五会把所有的操作作为一个整体一起向系统提交或撤销操作请求，即这些操作要么同时成功，要么同时失败。",
+    "description": "The generated-index page description for category 事务 in sidebar docs"
+  },
+  "sidebar.docs.category.非关系型数据库": {
+    "message": "非关系型数据库",
+    "description": "The label for category 非关系型数据库 in sidebar docs"
+  },
+  "sidebar.docs.category.Redis": {
+    "message": "Redis",
+    "description": "The label for category Redis in sidebar docs"
+  },
+  "sidebar.docs.category.Git": {
+    "message": "Git",
+    "description": "The label for category Git in sidebar docs"
+  },
+  "sidebar.docs.category.数据结构": {
+    "message": "数据结构",
+    "description": "The label for category 数据结构 in sidebar docs"
+  },
+  "sidebar.docs.category.基本概念": {
+    "message": "基本概念",
+    "description": "The label for category 基本概念 in sidebar docs"
+  },
+  "sidebar.docs.category.算法": {
+    "message": "算法",
+    "description": "The label for category 算法 in sidebar docs"
+  },
+  "sidebar.docs.category.线性表": {
+    "message": "线性表",
+    "description": "The label for category 线性表 in sidebar docs"
+  },
+  "sidebar.docs.category.Web": {
+    "message": "Web",
+    "description": "The label for category Web in sidebar docs"
+  },
+  "sidebar.docs.category.HTML": {
+    "message": "HTML",
+    "description": "The label for category HTML in sidebar docs"
+  },
+  "sidebar.docs.category.HTML.link.generated-index.description": {
+    "message": "负责网页的结构（页面元素和内容）。",
+    "description": "The generated-index page description for category HTML in sidebar docs"
+  },
+  "sidebar.docs.category.页面布局": {
+    "message": "页面布局",
+    "description": "The label for category 页面布局 in sidebar docs"
+  },
+  "sidebar.docs.category.页面布局.link.generated-index.description": {
+    "message": "5 minutes to learn the most important Docusaurus concepts.",
+    "description": "The generated-index page description for category 页面布局 in sidebar docs"
+  },
+  "sidebar.docs.category.基本标签": {
+    "message": "基本标签",
+    "description": "The label for category 基本标签 in sidebar docs"
+  },
+  "sidebar.docs.category.CSS": {
+    "message": "CSS",
+    "description": "The label for category CSS in sidebar docs"
+  },
+  "sidebar.docs.category.JS": {
+    "message": "JS",
+    "description": "The label for category JS in sidebar docs"
+  },
+  "sidebar.docs.category.AJAX": {
+    "message": "AJAX",
+    "description": "The label for category AJAX in sidebar docs"
+  },
+  "sidebar.docs.category.Node": {
+    "message": "Node",
+    "description": "The label for category Node in sidebar docs"
+  },
+  "sidebar.docs.category.Electron": {
+    "message": "Electron",
+    "description": "The label for category Electron in sidebar docs"
+  },
+  "sidebar.docs.category.Vue": {
+    "message": "Vue",
+    "description": "The label for category Vue in sidebar docs"
+  },
+  "sidebar.docs.category.Vue旧": {
+    "message": "Vue旧",
+    "description": "The label for category Vue旧 in sidebar docs"
+  },
+  "sidebar.docs.category.Nginx": {
+    "message": "Nginx",
+    "description": "The label for category Nginx in sidebar docs"
+  },
+  "sidebar.docs.category.Linux": {
+    "message": "Linux",
+    "description": "The label for category Linux in sidebar docs"
+  },
+  "sidebar.docs.category.Docker": {
+    "message": "Docker",
+    "description": "The label for category Docker in sidebar docs"
+  },
+  "sidebar.docs.category.消息队列": {
+    "message": "消息队列",
+    "description": "The label for category 消息队列 in sidebar docs"
+  },
+  "sidebar.docs.category.部署": {
+    "message": "部署",
+    "description": "The label for category 部署 in sidebar docs"
+  },
+  "sidebar.docs.category.部署.link.generated-index.description": {
+    "message": "部署相关",
+    "description": "The generated-index page description for category 部署 in sidebar docs"
+  },
+  "sidebar.docs.category.WSGI": {
+    "message": "WSGI",
+    "description": "The label for category WSGI in sidebar docs"
+  },
+  "sidebar.docs.category.接口文档": {
+    "message": "接口文档",
+    "description": "The label for category 接口文档 in sidebar docs"
+  },
+  "sidebar.docs.category.设计模式": {
+    "message": "设计模式",
+    "description": "The label for category 设计模式 in sidebar docs"
+  }
+}

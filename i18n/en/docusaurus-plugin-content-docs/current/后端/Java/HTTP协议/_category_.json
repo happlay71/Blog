@@ -1,0 +1,8 @@
+{
+  "label": "HTTPService",
+  "position": 3,
+  "link": {
+    "slug": "HTTPService",
+    "type": "generated-index"
+  }
+}

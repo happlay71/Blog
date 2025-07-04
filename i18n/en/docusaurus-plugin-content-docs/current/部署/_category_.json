@@ -1,0 +1,9 @@
+{
+  "label": "部署",
+  "position": 20,
+  "link": {
+    "slug": "部署",
+    "type": "generated-index",
+    "description": "部署相关"
+  }
+}

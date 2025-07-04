@@ -1,0 +1,9 @@
+{
+  "label": "HTML",
+  "position": 1,
+  "link": {
+    "slug": "/Web/HTML",
+    "type": "generated-index",
+    "description": "负责网页的结构（页面元素和内容）。"
+  }
+}

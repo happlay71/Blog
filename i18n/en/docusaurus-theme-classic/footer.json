@@ -1,0 +1,38 @@
+{
+  "link.title.学习": {
+    "message": "学习",
+    "description": "The title of the footer links column with title=学习 in the footer"
+  },
+  "link.title.导航": {
+    "message": "导航",
+    "description": "The title of the footer links column with title=导航 in the footer"
+  },
+  "link.title.社交": {
+    "message": "社交",
+    "description": "The title of the footer links column with title=社交 in the footer"
+  },
+  "link.item.label.笔记": {
+    "message": "笔记",
+    "description": "The label of footer link with label=笔记 linking to /docs/welcome"
+  },
+  "link.item.label.博客": {
+    "message": "博客",
+    "description": "The label of footer link with label=博客 linking to /blog"
+  },
+  "link.item.label.面经": {
+    "message": "面经",
+    "description": "The label of footer link with label=面经 linking to /interview"
+  },
+  "link.item.label.导航": {
+    "message": "导航",
+    "description": "The label of footer link with label=导航 linking to /tools"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/happlay71"
+  },
+  "copyright": {
+    "message": "\n          <div class=\"custom-footer\">\n            <!-- 备案信息块：包含工信部备案号与公安备案 -->\n            <div class=\"beian-info\">\n              <!-- 工信部备案号链接 -->\n              <a href=\"http://beian.miit.gov.cn/\" target=\"_blank\" rel=\"noopener\">冀ICP备2024076959号-2</a>\n\n              <!-- 分隔符 -->\n              <span class=\"separator\">|</span>\n\n              <!-- 公安备案链接，带小图标 -->\n              <a href=\"http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=13108202001116\" target=\"_blank\" rel=\"noopener\">\n                <img src=\"/img/police.png\" alt=\"police\" class=\"police-icon\"/>\n                冀公网安备13108202001116号\n              </a>\n            </div>\n\n            <!-- 版权文本信息 -->\n            <p class=\"copyright\">\n              Copyright © 2025 - MADE BY Happlay71, Built with Docusaurus.\n            </p>\n          </div>\n        ",
+    "description": "The footer copyright"
+  }
+}
