@@ -122,7 +122,7 @@ const config = {
           {to: '/interview', label: '面经', position: 'right'},
           {
             type: 'docSidebar',
-            sidebarId: 'docs/zh',
+            sidebarId: 'zh',
             position: 'right',
             label: '笔记',
             customProps: {
@@ -163,7 +163,7 @@ const config = {
             items: [
               {
                 label: '笔记',
-                to: '/docs/zh/welcome',
+                to: '/docs/welcome',
               },
               {
                 label: '博客',
