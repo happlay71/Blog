@@ -35,8 +35,9 @@ const config = {
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    // TODO 中英双语切换
+    defaultLocale: 'en', // 默认中文
+    locales: ['zh', 'en'], // 支持中英文
   },
 
   presets: [
@@ -87,6 +88,14 @@ const config = {
       
       // Replace with your project's social card
       // image: 'img/docusaurus-social-card.jpg',
+
+      // 添加颜色模式配置
+      colorMode: {
+        defaultMode: 'light',
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
+      },
+
       navbar: {
         // title: '',
         logo: {
@@ -94,6 +103,16 @@ const config = {
           src: 'img/logo/logo.png',
         },
         items: [
+          // {
+          //   type: 'localeDropdown', // 添加语言切换器
+          //   position: 'right',
+          //   dropdownItemsAfter: [
+          //     {
+          //       href: 'https://my-site.com/help-translate',
+          //       label: 'Help Translate', // 可选：翻译帮助链接
+          //     },
+          //   ],
+          // },
           {
             label: '首页',
             position: 'right',
@@ -119,10 +138,14 @@ const config = {
           },
           {
             href: 'https://github.com/happlay71',
-            label: 'GitHub',
-            alt: 'github',
             position: 'right',
-            src: 'img/github/github.png'
+            html: `
+              <img 
+                src="/img/github/github.png" 
+                alt="GitHub" 
+                style="height: 30px; vertical-align: middle; padding-bottom;"
+              />
+              `,
           },
         ],
       },
@@ -135,24 +158,6 @@ const config = {
       footer: {
         style: 'dark',
         links: [
-          
-          // {
-          //   title: 'Community',
-          //   items: [
-          //     {
-          //       label: 'Stack Overflow',
-          //       href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-          //     },
-          //     {
-          //       label: 'Discord',
-          //       href: 'https://discordapp.com/invite/docusaurus',
-          //     },
-          //     {
-          //       label: 'Twitter',
-          //       href: 'https://twitter.com/docusaurus',
-          //     },
-          //   ],
-          // },
           {
             title: '学习',
             items: [
@@ -167,6 +172,16 @@ const config = {
               {
                 label: '面经',
                 to: '/interview',
+              },
+              
+            ],
+          },
+          {
+            title: '导航',
+            items: [
+              {
+                label: '导航',
+                to: '/tools',
               },
             ],
           },
