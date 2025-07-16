@@ -159,7 +159,7 @@ const config = {
               <img 
                 src="/img/github/github.png" 
                 alt="GitHub" 
-                style="height: 30px; vertical-align: middle; padding-bottom;"
+                style="height: 30px; vertical-align: middle; padding-bottom: 4px;"
               />
               `,
           },
@@ -206,7 +206,6 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                // src: 'img/github/github.png',
                 href: 'https://github.com/happlay71',
               },
             ],
@@ -245,7 +244,7 @@ const config = {
         appId: '1JI6XZP0EX', // Application ID
         //  公开 API密钥：提交它没有危险
         apiKey: 'b14bd541ce81d54aae01074c24731c1a', //  Search-Only API Key
-        indexName: 'happlay71'
+        indexName: 'happlay71',
       },
     }),
 

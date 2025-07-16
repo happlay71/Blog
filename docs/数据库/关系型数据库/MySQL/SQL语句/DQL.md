@@ -3,8 +3,7 @@ slug: DQL
 sidebar_position: 4
 ---
 
-
-![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/屏幕截图 2023-09-01 142636.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-01%20142636.png)
 
 ```
 # 基础查询
@@ -20,7 +19,7 @@ select distinct 字段列表 from 表名;
 select 字段列表 from 表名 where 条件列表;
 ```
 
-![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/屏幕截图 2023-09-01 151418.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-01%20151418.png)
 
 ```mysql
 # 查询条件
@@ -41,7 +40,7 @@ select * from employee where idcard like '%x'; # 查询结尾为x的数据
 select 聚合函数(字段列表) from 表名;
 ```
 
-![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/屏幕截图 2023-09-01 174916.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-09-01%20174916.png)
 
 ```mysql
 -- 聚合函数 null不计入统计
@@ -60,9 +59,9 @@ select 字段列表 from 表名 [where 条件] group by 分组字段名 [having 
 
 where 和 having 区别
 
-​	>执行时机不同：where是分组之前进行过滤，不满足where条件，不参与分组；而having是分组之后对结果进行过滤。
+​ >执行时机不同：where 是分组之前进行过滤，不满足 where 条件，不参与分组；而 having 是分组之后对结果进行过滤。
 
-​	>判断条件不同：where不能对聚合函数进行判断，而having可以。
+​ >判断条件不同：where 不能对聚合函数进行判断，而 having 可以。
 
 ```mysql
 -- 分组查询
@@ -91,11 +90,11 @@ select 字段列表 from 表名 limit 起始索引，查询记录数;
 
 注意
 
-·起始索引从0开始，起始索引=（查询页码-1）*每页显示记录数。
+·起始索引从 0 开始，起始索引=（查询页码-1）\*每页显示记录数。
 
-·分页查询是数据库的方言，不同的数据库有不同的实现，MySQL中是LIMIT。
+·分页查询是数据库的方言，不同的数据库有不同的实现，MySQL 中是 LIMIT。
 
-·如果查询的是第一页数据，起始索引可以省略，直接简写为limit 10。
+·如果查询的是第一页数据，起始索引可以省略，直接简写为 limit 10。
 
 ```mysql
 -- 分页算法
@@ -128,4 +127,3 @@ select name, age from employee where age <= 35 order by age asc, entrydate desc;
 # 查询性别为男，且年龄在20-40岁以内的前5个员工信息，对查询结果按年龄升序排序，年龄相同按入职时间升序排序。
 select * from employee where gender = '男' and (age between 20 and 40) order by age asc, entrydate desc limit 5;
 ```
-

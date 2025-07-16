@@ -23,11 +23,9 @@ use 数据库名;
 	show create table 表名;
 ```
 
-![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/屏幕截图 2023-08-28 170153.png)
+![](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-28%20170153.png)
 
-![屏幕截图 2023-08-28 170614](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/屏幕截图 2023-08-28 170614.png)
-
-
+![%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-28%20170614](https://happlay-docs.oss-cn-beijing.aliyuncs.com/docs/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202023-08-28%20170614.png)
 
 ```
 # 添加字段
@@ -40,10 +38,9 @@ alter table 表名 change 旧字段名 新字段名 类型（长度）[comment �
 alter table 表名 drop 字段名;
 
 # 修改表名
-alter table 表名 rename to 新表名; 
+alter table 表名 rename to 新表名;
 # 删除表
 drop table [if exists] 表名;
 # 删除指定表并重新创建创建该表;
 truncate table 表名;
 ```
-
