@@ -1,4 +1,5 @@
 name: Auto Deploy
+
 on:
   push:
     branches:
@@ -25,12 +26,24 @@ jobs:
       - name: Build project
         run: npm run build
 
+      # ✅ 部署到阿里云
       - name: Deploy to Aliyun
         uses: easingthemes/ssh-deploy@v4.1.10
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.USER_HOST }}
           REMOTE_USER: ${{ secrets.USER_NAME }}
+          SOURCE: "build/"
+          ARGS: "-rltgoDzvO --delete"
+          TARGET: /nginx/html/build
+
+      # ✅ 部署到京东云
+      - name: Deploy to JDCloud
+        uses: easingthemes/ssh-deploy@v4.1.10
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.JD_SERVER_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.JD_USER_HOST }}
+          REMOTE_USER: ${{ secrets.JD_USER_NAME }}
           SOURCE: "build/"
           ARGS: "-rltgoDzvO --delete"
           TARGET: /nginx/html/build
