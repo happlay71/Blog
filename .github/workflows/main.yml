@@ -8,14 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      build-path: ${{ steps.build-step.outputs.build-path }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "20.9.0"
 
@@ -26,21 +24,37 @@ jobs:
         run: npm run clear
 
       - name: Build project
-        id: build-step
-        run: |
-          npm run build
-          echo "build-path=build/" >> $GITHUB_OUTPUT
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-files
+          path: build/
+          retention-days: 1
 
   deploy-jdcloud:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: build-files
+          path: build/
+
+      - name: Verify build files
+        run: |
+          echo "Checking build directory..."
+          ls -la build/
+          echo "Files found in build directory"
+
       - name: Deploy to JDCloud
         uses: easingthemes/ssh-deploy@v4.1.10
         with:
           SSH_PRIVATE_KEY: ${{ secrets.JD_SERVER_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.JD_USER_HOST }}
           REMOTE_USER: ${{ secrets.JD_USER_NAME }}
-          SOURCE: "${{ needs.build.outputs.build-path }}"
+          SOURCE: "build/"
           ARGS: "-rltgoDzvO --delete"
           TARGET: /data/docker/nginx/html/build
