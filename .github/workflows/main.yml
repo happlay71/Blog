@@ -31,20 +31,6 @@ jobs:
           npm run build
           echo "build-path=build/" >> $GITHUB_OUTPUT
 
-  deploy-aliyun:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to Aliyun
-        uses: easingthemes/ssh-deploy@v4.1.10
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.USER_HOST }}
-          REMOTE_USER: ${{ secrets.USER_NAME }}
-          SOURCE: "${{ needs.build.outputs.build-path }}"
-          ARGS: "-rltgoDzvO --delete"
-          TARGET: /nginx/html/build
-
   deploy-jdcloud:
     needs: build
     runs-on: ubuntu-latest
@@ -57,4 +43,4 @@ jobs:
           REMOTE_USER: ${{ secrets.JD_USER_NAME }}
           SOURCE: "${{ needs.build.outputs.build-path }}"
           ARGS: "-rltgoDzvO --delete"
-          TARGET: /nginx/html/build
+          TARGET: /data/docker/nginx/html/build
