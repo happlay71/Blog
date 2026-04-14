@@ -91,10 +91,35 @@ body {
 }
 
 /* ===== 导航栏 ===== */
+/*
+ * 注意：backdrop-filter 直接加在 .navbar 上会创建新的堆叠上下文（stacking context），
+ * 导致移动端侧边栏菜单被裁切只显示一小块。
+ * 解决方案：将毛玻璃效果放到 ::before 伪元素，navbar 本身不产生堆叠上下文。
+ */
 .navbar {
+  position: relative;
+  transition: var(--theme-transition);
+}
+
+/* 毛玻璃背景层（伪元素，不影响子元素堆叠） */
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
-  transition: var(--theme-transition);
+  background-color: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* 确保移动端侧边栏不被裁切 */
+.navbar-sidebar {
+  z-index: var(--ifm-z-index-fixed);
+}
+
+.navbar-sidebar__backdrop {
+  z-index: calc(var(--ifm-z-index-fixed) - 1);
 }
 
 [data-theme='dark'] .navbar {
