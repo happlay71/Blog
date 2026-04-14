@@ -1,45 +1,67 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
+/* ===== 字体引入 ===== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&display=swap');
 
-/* You can override the default Infima variables here. */
+/* ===== 亮色主题变量 ===== */
 :root {
-  --ifm-color-primary: #26d9c7;
-  --ifm-color-primary-dark: #65dbcb;
-  --ifm-color-primary-darker: #57d8c6;
-  --ifm-color-primary-darkest: #2fcab5;
-  --ifm-color-primary-light: #9fe9df;
-  --ifm-color-primary-lighter: #adece4;
-  --ifm-color-primary-lightest: #d9f6f2;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-primary: #00a896;
+  --ifm-color-primary-dark: #009687;
+  --ifm-color-primary-darker: #008e7f;
+  --ifm-color-primary-darkest: #007568;
+  --ifm-color-primary-light: #00baa5;
+  --ifm-color-primary-lighter: #00c2ad;
+  --ifm-color-primary-lightest: #00d9c1;
 
-  /* 过渡动画变量 */
+  --ifm-code-font-size: 90%;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --ifm-heading-font-weight: 700;
+  --ifm-navbar-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 168, 150, 0.08);
+
   --theme-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Hero */
+  --hero-avatar-size: 200px;
+  --hero-avatar-shadow: 0 0 40px rgba(0, 168, 150, 0.2), 0 16px 48px rgba(0, 0, 0, 0.1);
+
+  /* 卡片 */
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 10px 36px rgba(0, 0, 0, 0.12);
+
+  /* 强调光晕 */
+  --accent-glow: rgba(0, 210, 180, 0.15);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* ===== 暗色主题变量 ===== */
 [data-theme='dark'] {
-  --ifm-color-primary: #54b291;
-  --ifm-color-primary-dark: #36a17f;
-  --ifm-color-primary-darker: #339878;
-  --ifm-color-primary-darkest: #2a7d63;
-  --ifm-color-primary-light: #46c19a;
-  --ifm-color-primary-lighter: #4fc49f;
-  --ifm-color-primary-lightest: #6acdad;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #00d2b4;
+  --ifm-color-primary-dark: #00bda1;
+  --ifm-color-primary-darker: #00b398;
+  --ifm-color-primary-darkest: #00937c;
+  --ifm-color-primary-light: #1ad8bc;
+  --ifm-color-primary-lighter: #26dbbf;
+  --ifm-color-primary-lightest: #4de0c9;
+
+  --ifm-background-color: #0d1117;
+  --ifm-background-surface-color: #161b22;
+  --ifm-navbar-background-color: rgba(13, 17, 23, 0.92);
+  --ifm-footer-background-color: #010409;
+
+  --docusaurus-highlighted-code-line-bg: rgba(0, 210, 180, 0.08);
+
+  --hero-avatar-shadow: 0 0 60px rgba(0, 210, 180, 0.2), 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 10px 36px rgba(0, 0, 0, 0.6);
+
+  --accent-glow: rgba(0, 210, 180, 0.08);
 }
 
-/* ============= 全局过渡动画 ============= */
-
-/* 为所有元素添加平滑过渡 */
+/* ===== 全局过渡 ===== */
 * {
   transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 页面整体过渡 */
 html {
   transition: background-color 0.3s ease;
 }
@@ -48,144 +70,194 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 主要容器过渡 */
-.main-wrapper {
-  transition: var(--theme-transition);
+/* ===== 自定义滚动条 ===== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
 }
 
-/* 导航栏过渡 */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-color-primary-lighter);
+  border-radius: 3px;
+  opacity: 0.6;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-primary);
+}
+
+/* ===== 导航栏 ===== */
 .navbar {
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
   transition: var(--theme-transition);
 }
 
-.navbar__inner {
-  transition: var(--theme-transition);
+[data-theme='dark'] .navbar {
+  border-bottom: 1px solid rgba(48, 54, 61, 0.7);
 }
 
 .navbar__link {
-  transition: color 0.3s ease;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  position: relative;
 }
 
-.navbar__brand {
-  transition: color 0.3s ease;
+.navbar__link:hover {
+  color: var(--ifm-color-primary);
 }
 
-/* 侧边栏过渡 */
-.menu {
-  transition: var(--theme-transition);
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+/* 当前页指示线 */
+.navbar__link--active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--ifm-color-primary);
+  border-radius: 1px;
+}
+
+/* ===== 文档侧边栏 ===== */
+[data-theme='dark'] .menu {
+  background: var(--ifm-background-color);
 }
 
 .menu__link {
-  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.menu__list-item {
-  transition: var(--theme-transition);
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--accent-glow);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
 }
 
-/* 内容区域过渡 */
-.markdown {
-  transition: var(--theme-transition);
-}
-
-.markdown h1,
-.markdown h2,
-.markdown h3,
-.markdown h4,
-.markdown h5,
-.markdown h6 {
-  transition: color 0.3s ease;
-}
-
-.markdown p,
-.markdown li {
-  transition: color 0.3s ease;
-}
-
-.markdown a {
-  transition: color 0.3s ease;
-}
-
-.markdown blockquote {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* 代码块过渡 */
+/* ===== 代码块 ===== */
 .prism-code {
-  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+  border-radius: 10px;
 }
 
-code {
-  transition: background-color 0.3s ease, color 0.3s ease;
+[data-theme='dark'] .prism-code {
+  background: #161b22 !important;
+  border: 1px solid #21262d;
 }
 
-/* 卡片和容器过渡 */
-.card {
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+[data-theme='dark'] code {
+  background: rgba(110, 118, 129, 0.1);
+  border: 1px solid rgba(48, 54, 61, 0.8);
+  color: #e6edf3;
+  font-family: var(--ifm-font-family-monospace);
 }
 
-.container {
-  transition: var(--theme-transition);
+/* ===== Markdown 内容 ===== */
+[data-theme='dark'] .markdown a {
+  color: var(--ifm-color-primary);
 }
 
-/* 按钮过渡 */
+[data-theme='dark'] .markdown blockquote {
+  background: rgba(0, 210, 180, 0.04);
+  border-left: 3px solid var(--ifm-color-primary);
+  color: #8b949e;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ===== 表格（暗色） ===== */
+[data-theme='dark'] table tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme='dark'] table,
+[data-theme='dark'] th,
+[data-theme='dark'] td {
+  border-color: #21262d;
+}
+
+/* ===== 按钮 ===== */
 .button {
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-/* 目录过渡 */
+.button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px var(--accent-glow);
+}
+
+/* ===== 目录 ===== */
 .table-of-contents__link {
-  transition: color 0.3s ease;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
 }
 
-.table-of-contents {
-  transition: border-color 0.3s ease;
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
 }
 
-/* 搜索框过渡 */
-.DocSearch-Button {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+/* ===== 分页器 ===== */
+.pagination-nav__link {
+  border-radius: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 主题切换按钮过渡 */
-.react-toggle {
-  transition: all 0.3s ease;
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px var(--accent-glow);
 }
 
-.react-toggle-track {
-  transition: all 0.3s ease;
+/* ===== Admonition ===== */
+[data-theme='dark'] .alert {
+  background: rgba(22, 27, 34, 0.8);
+  border-color: rgba(48, 54, 61, 0.8);
 }
 
-.react-toggle-thumb {
-  transition: all 0.3s ease;
+/* ===== DocSearch ===== */
+[data-theme='dark'] .DocSearch-Button {
+  background: rgba(22, 27, 34, 0.8);
+  border: 1px solid #21262d;
+  color: #8b949e;
 }
 
-/* ============= 原有样式 ============= */
-
+/* ===== Hero Banner 包裹 ===== */
 .banner {
   padding: 4rem;
   transition: var(--theme-transition);
 }
 
-/** 在移动设备上，缩小 padding */
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem;
   }
 }
 
+/* ===== 自我介绍页 ===== */
 .introduction-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 5rem 2rem;
   transition: var(--theme-transition);
 }
 
 .introduction-container .p {
   font-size: 1.2rem;
-  /* 调整字体大小 */
   margin: 10px 0;
   transition: color 0.3s ease;
 }
@@ -198,92 +270,64 @@ code {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 5rem;
-  /* 增大字体大小 */
-  transition: color 0.3s ease;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* 页脚整体容器样式，设置居中、字体大小、字体颜色等 */
+/* ===== 页脚 ===== */
 .custom-footer {
   text-align: center;
-  /* 水平居中 */
   font-size: 14px;
-  /* 字体大小 */
   color: #aaa;
-  /* 默认字体颜色 */
   padding-top: 1rem;
-  /* 顶部间距 */
   transition: var(--theme-transition);
 }
 
-/* 备案信息区：水平排列 + 间距美化 */
 .beian-info {
   display: flex;
-  /* 弹性布局 */
   justify-content: center;
-  /* 居中对齐 */
   align-items: center;
-  /* 垂直居中 */
   flex-wrap: wrap;
-  /* 小屏时自动换行 */
   gap: 1rem;
-  /* 元素间间距 */
   margin-bottom: 0.5rem;
-  /* 与版权文本的垂直间距 */
 }
 
-/* 备案链接样式 */
 .beian-info a {
   color: #aaa;
-  /* 链接颜色 */
   text-decoration: none;
-  /* 移除下划线 */
   transition: color 0.3s ease;
-  /* 鼠标悬停渐变 */
 }
 
-/* 鼠标悬浮时颜色加深 */
 .beian-info a:hover {
   color: #fff;
 }
 
-/* 暗色主题下的备案链接悬浮效果 */
 [data-theme='dark'] .beian-info a:hover {
   color: var(--ifm-color-primary);
 }
 
-/* 分隔符的样式 */
 .separator {
   margin: 0 0.5rem;
-  /* 左右间距 */
   color: #555;
-  /* 分隔符颜色 */
   transition: color 0.3s ease;
 }
 
-/* 公安小图标样式 */
 .police-icon {
   height: 18px;
-  /* 图标高度 */
   vertical-align: middle;
-  /* 垂直居中对齐文本 */
   margin-right: 4px;
-  /* 图标与文字间距 */
   transition: opacity 0.3s ease;
 }
 
-/* 版权文字样式 */
 .custom-footer .copyright {
   margin: 0;
-  /* 去掉默认间距 */
   transition: color 0.3s ease;
 }
 
-/* 美化后的页脚样式，星空背景由 SVG 提供 */
 .footer--dark {
-  /* 使用外部 SVG 作为背景图 */
   background: url('/img/footer-bg.svg') center center / cover no-repeat;
-  /* 居中显示，铺满，禁止重复 */
-
   position: relative;
   z-index: 1;
   color: #eee;
@@ -292,7 +336,6 @@ code {
   transition: var(--theme-transition);
 }
 
-/* 页脚链接颜色微调 */
 .footer--dark a {
   color: #bbb;
   transition: color 0.3s ease;
@@ -302,90 +345,57 @@ code {
   color: #fff;
 }
 
-/* ============= 暗色主题优化 ============= */
-
-/* 暗色主题下的自定义页脚 */
 [data-theme='dark'] .custom-footer {
-  color: #ccc;
+  color: #8b949e;
 }
 
 [data-theme='dark'] .custom-footer .copyright {
-  color: #ccc;
+  color: #6e7681;
 }
 
 [data-theme='dark'] .separator {
-  color: #666;
+  color: #30363d;
 }
 
-/* 暗色主题下的介绍容器 */
 [data-theme='dark'] .introduction-container .p {
-  color: #ccc;
+  color: #8b949e;
 }
 
 [data-theme='dark'] .introduction-container .chinese {
   color: #fff;
 }
 
-/* 暗色主题下的横幅 */
-[data-theme='dark'] .banner {
-  background-color: var(--ifm-background-color);
-  color: var(--ifm-color-content);
-}
-
-/* ============= 特殊元素过渡优化 ============= */
-
-/* 分页器过渡 */
-.pagination {
+/* ===== 特殊元素过渡 ===== */
+.main-wrapper,
+.menu,
+.markdown {
   transition: var(--theme-transition);
 }
 
-.pagination__item {
-  transition: var(--theme-transition);
-}
-
-.pagination__item a {
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* 面包屑过渡 */
+.pagination,
+.pagination__item,
 .breadcrumbs {
   transition: var(--theme-transition);
 }
 
-.breadcrumbs__link {
-  transition: color 0.3s ease;
-}
-
-/* 标签过渡 */
 .badge {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 警告框过渡 */
-.alert {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+.card {
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 表格过渡 */
-table {
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
+table,
 th,
 td {
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* 选项卡过渡 */
-.tabs {
-  transition: var(--theme-transition);
 }
 
 .tabs__item {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* 代码复制按钮过渡 */
 .clean-btn {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
