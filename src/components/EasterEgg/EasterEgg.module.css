@@ -1,0 +1,389 @@
+/* ═══════════════════════════════════════════
+   彩蛋组件样式
+   路径：src/components/EasterEgg/EasterEgg.module.css
+═══════════════════════════════════════════ */
+
+/* ─── 01 五彩纸屑层 ─── */
+.confettiOverlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.confettiPiece {
+    position: absolute;
+    top: -14px;
+    display: block;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* ─── 02 成就 Toast ─── */
+.achievementToast {
+    position: fixed;
+    top: calc(var(--ifm-navbar-height, 60px) + 16px);
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #161b22;
+    border: 1px solid rgba(0, 210, 180, 0.35);
+    border-radius: 12px;
+    padding: 14px 20px 14px 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 210, 180, 0.08);
+    z-index: 9998;
+    animation: toastIn 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards,
+        toastOut 0.35s ease 3.4s forwards;
+    max-width: 300px;
+    /* 手机端靠左适配 */
+}
+
+[data-theme='light'] .achievementToast {
+    background: #fff;
+    border-color: rgba(0, 168, 150, 0.35);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes toastIn {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes toastOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+}
+
+.achievementIcon {
+    font-size: 26px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.achievementBody {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.achievementLabel {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00d2b4;
+    font-family: var(--ifm-font-family-monospace, monospace);
+}
+
+[data-theme='light'] .achievementLabel {
+    color: #00a896;
+}
+
+.achievementText {
+    font-size: 13px;
+    font-weight: 500;
+    color: #e6edf3;
+    line-height: 1.4;
+}
+
+[data-theme='light'] .achievementText {
+    color: #1c2128;
+}
+
+/* 手机端 Toast 靠左、全宽适配 */
+@media screen and (max-width: 480px) {
+    .achievementToast {
+        right: 12px;
+        left: 12px;
+        max-width: none;
+    }
+
+    @keyframes toastIn {
+        from {
+            transform: translateY(-80px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes toastOut {
+        from {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        to {
+            transform: translateY(-80px);
+            opacity: 0;
+        }
+    }
+}
+
+/* ─── 03 顶部横幅 ─── */
+.topBanner {
+    position: fixed;
+    top: var(--ifm-navbar-height, 60px);
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #00a896 0%, #0083c4 100%);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    padding: 10px 48px 10px 20px;
+    z-index: 9997;
+    animation: bannerSlide 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+        bannerFade 0.4s ease 3.1s forwards;
+    box-shadow: 0 4px 20px rgba(0, 168, 150, 0.3);
+}
+
+[data-theme='dark'] .topBanner {
+    background: linear-gradient(90deg, #00d2b4 0%, #5882ff 100%);
+    color: #0d1117;
+}
+
+@keyframes bannerSlide {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bannerFade {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.bannerClose {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px 8px;
+    opacity: 0.75;
+    line-height: 1;
+    border-radius: 4px;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.bannerClose:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ─── 04 语录弹窗（摇一摇） ─── */
+.quoteOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9996;
+    animation: overlayFadeIn 0.3s ease forwards;
+    padding: 20px;
+}
+
+@keyframes overlayFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.quoteCard {
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-radius: 16px;
+    padding: 2rem 2rem 1.75rem;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    animation: cardPop 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme='light'] .quoteCard {
+    background: #fff;
+    border-color: #e8eaed;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes cardPop {
+    from {
+        transform: scale(0.85) translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+}
+
+.quoteEmoji {
+    font-size: 36px;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.quoteLabel {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00d2b4;
+    margin-bottom: 1.25rem;
+    font-family: var(--ifm-font-family-monospace, monospace);
+}
+
+[data-theme='light'] .quoteLabel {
+    color: #00a896;
+}
+
+.quoteText {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #e6edf3;
+    font-style: italic;
+    margin: 0 0 1rem;
+    border: none;
+    padding: 0;
+}
+
+[data-theme='light'] .quoteText {
+    color: #1c2128;
+}
+
+.quoteAuthor {
+    font-size: 0.8rem;
+    color: #8b949e;
+    margin-bottom: 1.5rem;
+}
+
+[data-theme='light'] .quoteAuthor {
+    color: #6e7681;
+}
+
+.quoteClose {
+    background: rgba(0, 210, 180, 0.1);
+    border: 1px solid rgba(0, 210, 180, 0.3);
+    color: #00d2b4;
+    border-radius: 8px;
+    padding: 8px 28px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quoteClose:hover {
+    background: rgba(0, 210, 180, 0.18);
+    box-shadow: 0 0 0 3px rgba(0, 210, 180, 0.12);
+}
+
+[data-theme='light'] .quoteClose {
+    background: rgba(0, 168, 150, 0.08);
+    border-color: rgba(0, 168, 150, 0.3);
+    color: #00a896;
+}
+
+/* ─── 05 头像彩蛋动画 ─── */
+/* 这个 class 会被 JS 动态加到 canvas 上 */
+:global(.avatar-egg-active) {
+    animation: avatarSpin 0.6s ease, avatarGlow 2s ease-in-out !important;
+}
+
+/* 用 CSS Module :global 暴露给 JS 直接操作 DOM */
+.avatarEgg {
+    animation: avatarSpin 0.6s ease, avatarGlow 2s ease-in-out !important;
+}
+
+@keyframes avatarSpin {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    30% {
+        transform: rotate(15deg) scale(1.12);
+    }
+
+    60% {
+        transform: rotate(-10deg) scale(1.1);
+    }
+
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes avatarGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 40px rgba(0, 210, 180, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 8px rgba(0, 210, 180, 0.15),
+            0 0 40px rgba(0, 210, 180, 0.5),
+            0 0 80px rgba(88, 130, 255, 0.2);
+    }
+}
