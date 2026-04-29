@@ -111,7 +111,7 @@ function HomepageHeader() {
 
         <div className={styles.buttonWrapper}>
           <img src="/img/great.gif" alt="great" className={styles.heroEmoji} />
-          <Link className={clsx('button button--lg', styles.heroButton)} to="/introduction">
+          <Link className={clsx('button button--lg', styles.heroButton)} to="/introduction/introduction">
             自我介绍 →
           </Link>
         </div>
