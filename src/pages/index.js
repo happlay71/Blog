@@ -5,10 +5,11 @@ import Heading from '@theme/Heading';
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import styles from "./index.module.css";
-import HomepageFeatures from "@site/src/components/HomepageFeatures";
-import EasterEgg from "@site/src/components/EasterEgg";      // ← 彩蛋组件
+import HomepageFeatures from "@site/src/components/home";
+import EasterEgg from "@site/src/components/easter-egg";      // ← 彩蛋组件
 import logo from "@site/static/img/logo/logo.png";
 import noise from "@site/static/img/noise.png";
+// import Mascot from '@site/src/components/mascot';
 
 /* avatarClickHandler 由 EasterEgg 注册，canvas onClick 调用 */
 let _avatarClickHandler = null;
@@ -138,6 +139,7 @@ export default function Home() {
       <main>
         <HomepageFeatures />
       </main>
+      {/* <Mascot /> */}
     </Layout>
   );
 }

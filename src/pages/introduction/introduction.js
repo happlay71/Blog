@@ -2,8 +2,8 @@
 import clsx from "clsx";
 import React from 'react';
 import Layout from '@theme/Layout';
-import '../css/custom.css'; // 确保正确引用样式文件
-import styles from "./index.module.css";
+import '../../css/custom.css'; // 确保正确引用样式文件
+import styles from "../index.module.css";
 
 function Introduction() {
   return (
